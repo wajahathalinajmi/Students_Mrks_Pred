@@ -9,6 +9,9 @@ from src.utils import save_object
 
 from src.components.data_transformation import DataTransformationConfig
 from src.components.data_transformation import TransformationConfig
+
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import TrainerConfig
 @dataclass
 class DataingestionConfig:
     train_data_path: str = os.path.join("collection", "train.csv")
@@ -35,7 +38,7 @@ class DataConfig:
             logging.info("files saved succesfully")
             train_path = self.ingestion_config.train_data_path
             test_path = self.ingestion_config.test_data_path
-
+            
             return train_path,test_path
 
         except Exception as e:
@@ -47,4 +50,7 @@ if __name__ == "__main__":
 
     Tranformation_obj = TransformationConfig()
     train_arr, test_arr = Tranformation_obj.get_data_transformer(train_data_path=train_path, test_data_path=test_path)
+
+    Trainer_obj = TrainerConfig()
+    print(Trainer_obj.initiate_model_training(train_arr, test_arr))
 

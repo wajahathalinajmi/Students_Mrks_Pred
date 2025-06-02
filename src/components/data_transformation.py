@@ -41,7 +41,7 @@ class TransformationConfig:
             cat_pipeline = Pipeline(
                 steps=[
                     ("simple_imputing", SimpleImputer(strategy="most_frequent")),
-                    ("encoding", OneHotEncoder(handle_unknown="ignore", sparse=True)),
+                    ("encoding", OneHotEncoder(handle_unknown="ignore", sparse_output=True)),
                 ]
             )
 
