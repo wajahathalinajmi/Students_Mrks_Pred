@@ -74,8 +74,6 @@ class TrainerConfig:
             )
             logging.info("model saved succesfully")
 
-
-            print(f"{best_model_name}, {best_model_score}")
             return best_model_name, best_model_score
 
             
